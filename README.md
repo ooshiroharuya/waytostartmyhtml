@@ -1940,3 +1940,231 @@ HTML `<a>` 标签定义了一个超链接，它有如下语法：
 * 一个动态链接有下划线而且呈红色
 
 > **贴士**：链接当然也能通过CSS被改变样式
+
+### 13.3 HTML 链接 - 目标特性
+
+默认情况下，链接页面会在当前浏览器窗口被展示。想要改变这点，你必须为这个链接使用其他特定的目标。
+
+`target`特性用于指定打开链接文件的位置。
+
+`target`特性可以使用以下的任意一个值：
+
+* `_self` - 默认特性。点击此链接时默认跳转的窗口为点击时的窗口。
+* `_blank` - 在新窗口或新标签页中打开链接文件
+* `_parent` - 在父框架中打开该链接文件
+* `_top` - 以窗口全屏的形式打开链接
+
+> **范例**
+>
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>     <meta charset="UTF-8">
+>     <title>link_2</title>
+> </head>
+> <body>
+>     <a href="https://www.google.com" target="_blank">谷歌一下，你又知道</a>
+> </body>
+> </html>
+> ```
+
+
+
+### 13.4 绝对URL vs 相对URL
+
+以上所有的范例的`href`特性都是使用的**绝对路径**(全网站链接)。
+
+一个本地链接(页面链接属于同一个网站)使用**相对URL**来指定(省略掉了"https://www"部分)
+
+> **范例**
+>
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>     <meta charset="UTF-8">
+>     <title>link_2</title>
+> </head>
+> <body>
+>   <h2>
+>     Absolute URLs
+>   </h2>
+>   <p>
+>     <a href="https://www.w3.org/">W3C</a>
+>   </p>
+>   <p>
+>     <a href="https://www.google.com/">Google</a>
+>   </p>
+>   
+>   <h2>
+>     Relative URLs
+>   </h2>
+>   <p>
+>     <a href="html_images.asp">HTML Images</a>
+>   </p>
+>   <p>
+>     <a href="/css/default.asp">CSS Tutorial</a>
+>   </p>
+> </body>
+> </html>
+> ```
+
+
+
+### 13.5 HTML 链接 - 使用图片来作为链接
+
+如果需要使用图片来作为链接，只需要在`<a>`标签内部添加`<img>`标签即可：
+
+> **范例**：
+>
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>     <meta charset="UTF-8">
+>     <title>link_3</title>
+> </head>
+> <body>
+>     <a href="https://www.google.com"><img src="img/taran_dasha.gif" alt="taran_dasha" title="dasha_taran"></a>
+> </body>
+> </html>
+> ```
+
+
+
+### 13.6 Email地址链接
+
+在`href`特性内使用`mailto`部创建一个链接用来开启用户的email程序：
+
+> **范例**：
+>
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>     <meta charset="UTF-8">
+>     <title>link_4</title>
+> </head>
+> <body>
+>   <a href="mailto:ooshiroharuya@gmail.com">send email</a>
+> </body>
+> </html>
+> ```
+
+
+
+### 13.7 HTML 链接标题
+
+`title` 特性为元素指定了额外的信息。信息通畅会在鼠标悬浮于链接上时以工具贴文本的方式显示。
+
+> **范例**：
+>
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>     <meta charset="UTF-8">
+>     <title>link_5.html</title>
+> </head>
+> <body>
+> <a href="https://www.google.com" title="Go to google something">Google一下，你就知道</a>
+> </body>
+> </html>
+> ```
+
+
+
+### 13.8 HTML 链接颜色
+
+默认情况下，在浏览器中链接会以下列方式进行呈现：
+
+* 一个未访问过的链接是下划线+蓝色
+* 一个访问过的链接是下划线+紫色
+* 一个活动链接是下划线+红色
+
+你也可以通过CSS来改变链接的颜色。
+
+> **范例**：
+>
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>     <meta charset="UTF-8">
+>     <title>Title</title>
+>     <link rel="stylesheet" href="css/link_css_1.css">
+> </head>
+> <body>
+> <a href="https://www.google.com">Google一下，你就知道</a>
+> </body>
+> </html>
+> ```
+
+
+
+## 14. HTML链接 - 创建书签
+
+*HTML链接可以被用来创建书签，因此读者可以直接跳转到网页的特定部分*
+
+
+
+### 14.1 在HTML中创建书签
+
+当网页太长的时候，书签将大有助益。
+
+创建一个书签 - 第一步先创建一个书签项，然后再给书签项添加链接。
+
+当链接被点击的时候，页面会自动上滚或下滚到书签位置。
+
+
+
+### 14.2 案例
+
+首先，使用`id`特性来创建书签：
+
+>```html
+><h2 id="C4">
+>  Chapter 4
+></h2>
+>```
+
+然后，给书签添加一个链接("跳转至Chapter 4")从相同页面进行跳转
+
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>     <meta charset="UTF-8">
+>     <title>Title</title>
+> </head>
+> <body>
+> <p><a href="#C4">Jump to Chapter 4</a></p>
+> <p><a href="#C10">Jump to Chapter 10</a></p>
+> 
+> <h2>Chapter 1</h2>
+> <p>This chapter explains bla bla bla</p>
+> <h2>Chapter 2</h2>
+> <p>This chapter explains bla bla bla</p>
+> <h2>Chapter 3</h2>
+> <p>This chapter explains bla bla bla</p>
+> <h2 id="C4">Chapter 4</h2>
+> <p>This chapter explains bla bla bla</p>
+> <h2>Chapter 5</h2>
+> <p>This chapter explains bla bla bla</p>
+> <h2>Chapter 6</h2>
+> <p>This chapter explains bla bla bla</p>
+> <h2>Chapter 7</h2>
+> <p>This chapter explains bla bla bla</p>
+> <h2>Chapter 8</h2>
+> <p>This chapter explains bla bla bla</p>
+> <h2>Chapter 9</h2>
+> <p>This chapter explains bla bla bla</p>
+> <h2 id="C10">Chapter 10</h2>
+> <p>This chapter explains bla bla bla</p>
+> <h2>Chapter 11</h2>
+> <p>This chapter explains bla bla bla</p>
+> </body>
+> </html>
+> ```
+
