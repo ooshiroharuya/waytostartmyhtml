@@ -2168,3 +2168,267 @@ HTML `<a>` 标签定义了一个超链接，它有如下语法：
 > </html>
 > ```
 
+
+
+## 15. HTML 图片
+
+图片可以提升网页的设计感与观感。
+
+
+
+### 15.1 HTML 图片标签语法
+
+`<img>` 标签用于给网页嵌入一张图片。
+
+从技术上而言，图片并没有真正被“嵌入”到网页中；图片是被链接进入网页中。`<img>` 标签为引用的图片划分了额一块固定区域。
+
+`<img>` 标签是空标签，它只包含特性，而且没有任何的关闭标签。
+
+`<img>` 标签需要两个特性：
+
+* src - 给图片指定路径
+* alt - 给图片指定备用的文字
+
+
+
+> **语法**
+>
+> ```html
+> <img src="url" alt="alternatetext">
+> ```
+
+
+
+### 15.2 src 特性
+
+`src` 特性用于指定图片的路径。
+
+
+
+**注意**：当图片加载时，此时，是浏览器通过网页服务器获取到图片并插入到页面中。因此，确保我们的图片要存放在规定的位置中。不然你的访问者将会看到一个坏掉的链接图标。坏掉的链接图标和`alt` 文本将会在浏览器无法正常显示时进行展示。
+
+> **范例**：
+>
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>     <meta charset="UTF-8">
+>     <title>Title</title>
+> </head>
+> <body>
+>     <img src="img/dasha_taran.jpg" alt="The most beautiful Russian girl">
+> </body>
+> </html>
+> ```
+
+
+
+### 15.3 alt 特性
+
+请求的 `alt` 特性为图片提供了一个可替换文本，当用户因为一些原因无法正常访问图片时（可能因为网速连接太慢，src特性中出现了一些错误，或者用户使用的是屏幕阅读器）会读取到可替换文本。
+
+`alt` 特性值需要描述这张图片的内容。
+
+当浏览器无法找到图片时候，就会展示出 `alt` 特性对应的值。
+
+
+
+### 15.4 图片尺寸 - 宽度与高度
+
+你可以使用 `style` 特性来指定图片的宽度与高度：
+
+> **范例**
+>
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>     <meta charset="UTF-8">
+>     <title>Title</title>
+> </head>
+> <body>
+>     <img src="img/dasha_taran.jpg" alt="the most beautiful Russian girl" style="width: 500px; height: 500px">
+> </body>
+> </html>
+> ```
+
+同样，你可以使用 `width` 和 `height` 特性进行替换：
+
+> **范例**
+>
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>     <meta charset="UTF-8">
+>     <title>Title</title>
+> </head>
+> <body>
+>   <img src="img/dasha_taran.jpg" alt="the most beautiful Russian girl" width="500" height="500">
+> </body>
+> </html>
+> ```
+
+`width` 和 `height	` 属性通常以像素为单位定义图片的宽度与高度
+
+> **注意**：要经常给图片指定宽度和高度。如果宽度和高度未指定的话，当图片进行加载的时候网页有可能会出现闪烁的现象
+
+
+
+### 15.5 宽度高度，或者Style？
+
+`width`、`height` 以及 `style` 特性在 HTML 中都是可用的标签。
+
+然而，我们推荐使用 `style` 特性。它能够为自定义的表栏提供保护以免改变图片的尺寸大小。
+
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>     <meta charset="UTF-8">
+>     <title>img_4</title>
+>   <style>
+>     /* 该 style 将所有的图片的宽度都设置为100% */
+>     img {
+>         width: 100%;
+>     }
+>   </style>
+> </head>
+> <body>
+>     <h2>Width/Height Attributes or Style?</h2>
+>     <p>The first image uses the width attribute (set to 128 pixels), but
+>     the style in the head section overrides it, and sets the width to 100%</p>
+> 
+>     <img src="img/dasha_taran.jpg" alt="taran_dasha" width="128" height="128">
+> 
+>     <p>The second image uses the style attribute to set the width to 128 pixels,
+>     this will not be overriden by the style in the head section:</p>
+> 
+>     <img src="img/dasha_taran.jpg" alt="dasha_taran" style="width: 128px;height: 128px">
+> </body>
+> </html>
+> ```
+
+
+
+### 15.6 其他文件夹里的图片
+
+如果你在子文件夹内有你需要的图片，你必须在 `src` 标签内包含该文件夹的名称：
+
+*上面所有的例子都是例子*
+
+
+
+### 15.7 在其他服务器或网页的图片
+
+一些网站会指向其他服务器内的图片。
+
+要指向其他服务器里的图片，你必须在 `src` 特性内指定全路径：
+
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>     <meta charset="UTF-8">
+>     <title>img_5</title>
+> </head>
+> <body>
+> <h2>Images on Another Server</h2>
+> <img src="https://cdn.sspai.com/2017/10/20/c4a41a30871c3cc81f322c52e2057abf.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"
+>      alt="revolver_ocelot">
+> </body>
+> </html>
+> ```
+
+**外部图片的注意事项：**外部图片可能受制于版权。如果你未获取到图片的使用权，你有可能会因此陷入到版权法的泥沼中。另外，你无法控制外部图片，它可能突然就被改变或者移除掉了。
+
+
+
+### 15.8 动图
+
+HTML 允许动图的使用：
+
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>     <meta charset="UTF-8">
+>     <title>img_6</title>
+> </head>
+> <body>
+> <h2>Animated Images</h2>
+> <img src="img/taran_dasha.gif" alt="taran_dasha">
+> </body>
+> </html>
+> ```
+
+
+
+### 15.9 图片作为链接
+
+要使用图片作为一个超链接，只需要将 `<img>` 标签放在 `<a>` 标签中即可：
+
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>     <meta charset="UTF-8">
+>     <title>img_7</title>
+> </head>
+> <body>
+> <h2>Images as a Link</h2>
+> <p>The image is a link. You can click on it.</p>
+> <a href="https://www.google.com/">
+>     <img src="img/taran_dasha.gif" alt="taran_dasha">
+> </a>
+> </body>
+> </html>
+> ```
+
+
+
+### 15.10 图片浮动
+
+使用CSS `float` 属性让图片悬浮于文字的左侧或者右侧：
+
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>     <meta charset="UTF-8">
+>     <title>img_8</title>
+> </head>
+> <body>
+> <h2>Floating Images</h2>
+> <p><strong>Float the image to the right:</strong></p>
+> 
+> <p>
+>     <img src="img/taran_dasha.gif" alt="taran_dasha" style="float: right;height: 30%; width: 30%">
+>     A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image.
+> </p>
+> 
+> <p><strong>Float the image to the left:</strong></p>
+> 
+> <p>
+>     <img src="img/taran_dasha.gif" alt="taran_dasha" style="float: left; height: 30%; width: 30%">
+>     A paragraph with a floating image. A paragraph with a floating image. A paragraph with a floating image.
+> </p>
+> </body>
+> </html>
+> ```
+
+
+
+## 16. HTML 图片map
+
+*有了HTMl 图片map，你可以给图片创建可以点击的区域*
+
+
+
+### 图片maps
+
+`<map>` 标签定义了一个图片map。一个图片map是指一个带有可点击区域的图片。区域由一个或者多个`<area>` 标签进行定义。
+
+
+
